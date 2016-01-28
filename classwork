@@ -1,0 +1,15 @@
+names= (Rollins, Pilcher, Vigil, Jones, Boyd)
+x=first letter of word
+y= second letter of word
+z= third letter of word
+alpha= (a,b,c,d,e,f,g.....z)
+x = names 
+return (which (x == alpha)[1:26])
+ if x=x in names #i.e. first letter of name is the same, then
+ y=names
+ return which (x == alpha)[1:26])
+if y=y in names #i.e. first letter of name is the same, then
+ z=names
+ return which (z == alpha)[1:26])
+
+ [print]
