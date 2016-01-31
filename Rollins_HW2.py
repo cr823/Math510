@@ -1,5 +1,10 @@
 #Question 1: Define a function ‘fib’ that takes a number, ‘n’, as a parameter and prints all the Fibonacci numbers 
 #less than ‘n’ to the screen.
+
+## Generally good comments but make sure to use doc strings for your function headed (define
+## purpose of the functions and parameters) so the help function will work with your function.
+
+## Why did you print the logical result of a<n?
 def fib(n):
     a, b = 0, 1
     if n== 0: return 0 #the first number should be zero
@@ -27,6 +32,8 @@ mymax(5,9) #no matter what we define a and b as, this will return the largest nu
 #Question 3: Define a function max_of_three() that takes three numbers as arguments and returns the largest of them.
 
 #use question 2 info from above (mymax function) and build new function:
+
+## Nice solution!
 def max_of_three(a,b,c):
     return mymax( a, mymax( b, c ) ) #first mymax(b,c) will see which is larger, then mymax(a,mymax(b,c)) will see
                                      #what is larger between a and whatever was the max for mymax(b,c) and return
@@ -35,27 +42,28 @@ max_of_three(4,6,80)
 
 
 #Question 3, another way to do it (for own practice):
-def max_of_three(a,b,c):
-    if a > b: #rule one
-        if a > c: #this is within first if function
-            return a
-        else:
-            return c
-    else: #new rule
-        if b > c:
-            return b
-        else:
-            return c
-#Set a, b and c to whatever numbers you'd like
-a=60
-b=23
-c=54
-max_of_three(a,b,c)
+# def max_of_three(a,b,c):
+#     if a > b: #rule one
+#         if a > c: #this is within first if function
+#             return a
+#         else:
+#             return c
+#     else: #new rule
+#         if b > c:
+#             return b
+#         else:
+#             return c
+# #Set a, b and c to whatever numbers you'd like
+# a=60
+# b=23
+# c=54
+# max_of_three(a,b,c)
 
 
 #Question 4: Define a function mylen() that computes the length of a given list or string. 
 #(It is true that Python has the len() function built in, but writing it yourself is nevertheless a good exercise.)
 
+## The function should return count instead of printing count
 def mylen(n):
     count = 0 #set count to zero
     for i in n: #for each letter/string (i) in n
@@ -68,14 +76,15 @@ mylen("apple")
 #Question 5: Write a function that takes a character (i.e. a string of length 1) and returns True if it is a vowel,
 #False otherwise.
 
-def vowels(char):
+## This function returns a string, instead it should return a logical value
+def vowel(char):
 
  if (char == "a" or char == "A" or char == "e" or char == "E" or char == "i" or char == "I" or char == "o" or 
      char == "O" or char == "u" or char == "U"): #defining the vowles
      return ("True") #it is true if the character equals one of the defined characters above (i.e.a vowel)
  else:
      return ("False") #returns false since there is no vowel found
-vowels("O")#change this as needed to whatever letter desired.
+#vowels("O")#change this as needed to whatever letter desired.
 
 
 
@@ -83,12 +92,13 @@ vowels("O")#change this as needed to whatever letter desired.
 #language"). That is, double every consonant and place an occurrence of "o" in between. For example, translate
 #("this is fun") should return the string "tothohisos isos fofunon".
 
-def translator(char):
+## Function name was not corret - how did this run properly? Also, logic does not meet specifications.
+def translate(char):
  trans = ""
  for i in char:
-    if vowels(i)=="True": #using function vowels() from question 5 to find vowels for each character 
+    if vowel(i)=="True": #using function vowels() from question 5 to find vowels for each character
          trans = trans+2*str(i) 
-    elif vowels(i) == "False": #for consontants, we double them and place an 'o' between the vowel.
+    elif vowel(i) == "False": #for consontants, we double them and place an 'o' between the vowel.
          trans = trans+str(i)+"o"+str(i)
 
     return (trans)
@@ -192,3 +202,64 @@ def generate_n_chars(n,char):
         x=x+char #x will be returned n number of times
     return x
 generate_n_chars(5,'s')
+
+
+##TEST CASES
+print('#1\n')
+fib(500)
+print('\n')
+
+print('#2\n')
+print(mymax(45,987), '\n')
+
+print('#3\n')
+print(max_of_three(3,4,5),'\n')
+
+print('#4\n')
+print(mylen('Gerhard'))
+print(mylen([1,2,3,4,5,6,7]))
+print('\n')
+
+print('#5\n')
+print(vowel('e'))
+print(vowel('H'))
+print('\n')
+
+print('#6\n')
+print(translate("this is fun"))
+print(translate('aeiou'))
+print(translate('YYYYYYY'))
+print(translate("mmmmmm"))
+print('\n')
+
+print('#7\n')
+print(sum([1,2,3,4,5]))
+print('\n')
+
+print('#8\n')
+print(multiply([0,1,2,3]))
+print(multiply([1,2,3,4]))
+print('\n')
+
+print('#9\n')
+print(reverse("gnitset ma I"))
+print('\n')
+
+print('#10\n')
+print(is_palindrome('radar'))
+print(is_palindrome('Gerhard'))
+print('\n')
+
+print('#11\n')
+print(is_member('dog', ['cat', 'dog', 'zebra']))
+print(is_member(3, [1,2,3,4]))
+print(is_member(3, [5,6,7]))
+print('\n')
+
+print('#12\n')
+print(overlapping([1,2,3], [3,4,5]))
+print(overlapping([1,2,3], [6,4,5]))
+print('\n')
+
+print('#13\n')
+print(generate_n_chars(7, 'g'))
