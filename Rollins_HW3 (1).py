@@ -22,7 +22,7 @@ def histogram(list):
         #for every value x on the list, x will be returned n number of times. x will then be replaced by *
         print(char)
     '''for each value in the list a "*" will print out for the value of each item in the list'''    
-histogram([1,4,5])
+# histogram([1,4,5])
 
 
 # In[655]:
@@ -40,7 +40,7 @@ def max_in_list(list):
             max = i #the loop will keep going for each value until it finds the largest i
     return max
 
-max_in_list([1,200,43,5454,300000,1,90])
+# max_in_list([1,200,43,5454,300000,1,90])
 
 
 # In[656]:
@@ -58,7 +58,7 @@ def map_list(list):
         ans.append(count) #this will add the count to the answer
     return ans
 
-map_list(["apple", "carmen", "tired"])
+# map_list(["apple", "carmen", "tired"])
 
 
 # In[657]:
@@ -77,7 +77,7 @@ def find_longest_word(list):
         if y > long: long= y #once y is larger than long we know we've found the longest word and make long equal to y
     return long
 
-find_longest_word(["apple", "happiness", "tired", "mathematics"]) 
+# find_longest_word(["apple", "happiness", "tired", "mathematics"])
 
 
 # In[658]:
@@ -101,7 +101,7 @@ def filter_long_words(string,number):
         if mylen(string[i]) > number: #if a word in the string is larger than the number n 
             ans.append(string[i]) #it will return these words to the blank set so it can print the answer
     return ans
-filter_long_words(["apple", "happiness", "tired", "mathematics"],8)
+# filter_long_words(["apple", "happiness", "tired", "mathematics"],8)
 
 
 # In[659]:
@@ -111,7 +111,7 @@ filter_long_words(["apple", "happiness", "tired", "mathematics"],8)
 #no basil", "Rise to vote sir", or the exclamation "Dammit, I'm mad!". Note that punctuation, capitalization, and 
 #spacing are usually ignored.
 
-
+## This doesn't quite work correctly. Should ignore case and punctuation
 def is_palindrome_phrase(list):
     """This function will recgonize palindrome phrases 
     Parameter: 'list' is the paramter, which can be any statement (of words) entered below as "list="
@@ -120,8 +120,9 @@ def is_palindrome_phrase(list):
         return True #if it is equal to list, it will return true
     else:
         return False #if not, it will return false
-list=["was it a rat i saw?"] #enter phrase here
-is_palindrome_phrase(list)
+
+##list=["was it a rat i saw?"] #enter phrase here
+# is_palindrome_phrase(list)
 
 
 # In[660]:
@@ -141,7 +142,7 @@ def pangram(sentence):
 
     else: return True #if all letters of the alphabet are in the sentence, the function will return true
             
-pangram("The quick brown fox jumps over the lazy dog")
+# pangram("The quick brown fox jumps over the lazy dog")
 
 
 # In[661]:
@@ -154,11 +155,12 @@ pangram("The quick brown fox jumps over the lazy dog")
 #The same verse is repeated, each time with one fewer bottle. The song is completed when the singer or singers reach
 #zero. Your task here is write a Python program capable of generating all the verses of the song.
 
+## Goes one too far and you end up with -1 bottles!
 def ninety_nine_bottles():
     """This function will generate all the versus to the song '99 bottles of coke'
     the parameter is blank (i.e. no parameter) as once this function is entered it 
     will automatically generate the entire song"""
-    count=99 #start at 99 (the song starts at 99 bottles)
+    count=9 #start at 99 (the song starts at 99 bottles)
     while count >= 0: #loop will run until count is greater or equal to zero (i.e. it will run from 99-0)
         #this loop will print the blow, which for each iteration has the current count (and count-1 for the
         #second line) 
@@ -166,7 +168,7 @@ def ninety_nine_bottles():
         print ("Take one down, pass it around, " + str(count-1) + " bottles of coke on the wall")
         count-=1
         
-ninety_nine_bottles()
+# ninety_nine_bottles()
 
 
 # In[662]:
@@ -175,6 +177,8 @@ ninety_nine_bottles()
 #"christmas":"jul", "and":"och", "happy":gott", "new":"nytt", "year":"år"} and use it to translate your Christmas cards
 #from English into Swedish. That is, write a function translate() that takes a list of English words and returns a 
 #list of Swedish words.
+
+## Error in trying to iterate over the dictionary
 def translate(words):
     """This function will translate a list of English words to 'Swedish.
     Parameter (words) is a list of English words that will be translated 
@@ -183,11 +187,12 @@ def translate(words):
     dic={"merry":"god", "christmas":"jul", "and":"och", "happy":"gott","new":"nytt", "year":"år"} 
     swedish=[] #leave empty
     for i in words: #for each word in the 'words' (the parameter or list of words)
-        if i in dict: #if there is a word from the dictionary in words parameter
-             swedish.append(dic[i]) #then it will be replaced with the dictionary word 
+        ## This didn't work for me - Prof G
+        #if i in dict: #if there is a word from the dictionary in words parameter
+        swedish.append(dic[i]) #then it will be replaced with the dictionary word
     return swedish
     
-translate(["merry", "christmas", "and" ,"happy", "new", "year"])
+# translate(["merry", "christmas", "and" ,"happy", "new", "year"])
 
 
 # In[667]:
@@ -212,9 +217,7 @@ def char_freq(n):
             char[i]=1 #if there is not more than one charater
     return (char)
 
-char_freq("aabbababababababa")
-
-
+# char_freq("aabbababababababa")
 
 # In[668]:
 
@@ -251,7 +254,7 @@ def ROT13(code):
         else: result+=i #if there is something not in key (such as a space or ?) the result will remain the same
     return result
  
-ROT13("Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!")
+# ROT13("Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!")
 
 
 # In[670]:
@@ -261,6 +264,9 @@ ROT13("Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!")
 #2) inserts an extra space after a period if the period is directly followed by a letter. 
 #E.g. correct("This is very funny and cool.Indeed!") should return "This is very funny and cool. Indeed!"
 
+## Failed to import re in this file, so this initially failed - Prof G
+## Added the following line - Prof G
+import re
 def correct(phrase):
     """This function will takes a phrase from a string to correct simple spelling errors.
      Function will compress multiple space characters into one, and inserts an extra space
@@ -274,10 +280,13 @@ def correct(phrase):
     #this next command will remove an extra space after a period in the phrase (parameter)
     #re.sub for '\.' looks for anywhere there is no space after a period and will add a space: ('. ')
     correct = re.sub('\.','. ',correct)
- 
-    print(correct)
+
+    ## SHould return the phrase instead of printing it. - Prof G
+    return correct
+
+    ##print(correct)
     
-correct("This is very funny and    cool.Indeed!")
+# correct("This is very funny and    cool.Indeed!")
 
 
 # In[671]:
@@ -292,7 +301,7 @@ correct("This is very funny and    cool.Indeed!")
 #must be regarded as heuristic, in the sense that you must not expect them to work for all cases. 
 #Tip: Check out the string method endswith().
 
-
+## Doesn't work in all cases, see my test cases - Prof G
 def make_3sg_form(word):
     """This function will returns a third person singular form verb from the parameter.
     The parameter must be a verb in the infinitive form, i.e. eat, sleep, run, etc."""
@@ -303,12 +312,14 @@ def make_3sg_form(word):
         word += 'es' #ads 'es' to the word
     else: #all other words will just have the letter 's' added on to the end of it.
         word += 's'
-    print (word)
+    ## Should return word instead of printing it - Prof G
+    return word
+    ##print (word)
     
-make_3sg_form('eat')
-make_3sg_form('sleep')
-make_3sg_form('beauty')
-make_3sg_form('labor')
+# make_3sg_form('eat')
+# make_3sg_form('sleep')
+# make_3sg_form('beauty')
+# make_3sg_form('labor')
 
 
 # In[672]:
@@ -323,7 +334,7 @@ make_3sg_form('labor')
 #present participle form. Test your function with words such as lie, see, move and hug. However, you must not expect 
 #such simple rules to work for all cases.
 
-
+## Doesn't work in all cases, see my test cases - Prof G
 def make_ing_form(word):
     """This function will return a verb (word) into present participle form. 
     The parameter is 'word', the verb there will be changed. """
@@ -348,12 +359,51 @@ def make_ing_form(word):
     
     else: #if none of the above conditions apply, just add 'ing' to the word
         word += "ing"
-    print (word)
+
+    ## Should return word instead of printing it - Prof G
+    return word
+    ##print (word)
 
 
-make_ing_form('be')
-make_ing_form('knee')
-make_ing_form('fly')
+# make_ing_form('be')
+# make_ing_form('knee')
+# make_ing_form('fly')
 
+##Test Cases
+help(histogram)
+help(make_ing_form)
 
+print("1 Histogram ", histogram([1,2,3,5,6,7,6,5,4,3,2,1]), '\n')
+
+print("2 Max in List 77 ", max_in_list([1,2,3,77,4,5,6,7]), '\n')
+
+print("3 word to length map 3,5,7,4 ", map_list(['dog', 'snake', 'dolphin', 'cats']), '\n')
+
+print("4 Longest word 7 ", find_longest_word(['dog', 'snake', 'dolphin', 'cats']), '\n')
+
+print("5 filter long words snake, dolphin ", filter_long_words(['dog', 'snake', 'dolphin', 'cats'],4), '\n')
+
+print("6 Palindrome phrase TRUE ", is_palindrome_phrase("Go hang a salami I'm a lasagna hog."), '\n')
+
+print("7 Pangram TRUE ", pangram("The quick brown fox jumps over the lazy dog."), '\n')
+
+print("8 Cokes \n", ninety_nine_bottles())
+
+print("9 Translating to Swedish ['god', 'jul', 'gott'] ", translate(['merry', 'christmas', 'happy']), '\n')
+
+print("10 Char Freq {'a': 7, 'c': 3, 'b': 14, 'e': 2, 'd': 3, 'g': 7, 'f': 3} ", char_freq("agbbabgcbdbabdgbdbabageebabcbgcbffgfabg"), '\n')
+
+print("11 Decoder Caesar cipher? I much prefer Caesar salad!", ROT13("Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!"), '\n')
+
+print("12 correct This is very funny and cool. Indeed!", correct("This is very funny and cool.Indeed!"), '\n')
+
+print("13 3ps brushes ", make_3sg_form("brush"), '\n')
+print("13 3ps tries ", make_3sg_form("try"), '\n')
+print("13 3ps runs ", make_3sg_form("run"), '\n')
+print("13 3ps fixes ", make_3sg_form("fix"), '\n')
+
+print("14 ing lying ", make_ing_form("lie"), '\n')
+print("14 ing seeing ", make_ing_form("see"), '\n')
+print("14 ing moving ", make_ing_form("move"), '\n')
+print("14 ing hugging ", make_ing_form("hug"), '\n')
 
